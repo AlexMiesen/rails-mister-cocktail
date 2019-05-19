@@ -4,6 +4,14 @@
 
 <% @cocktails.each do |cocktail| %>
   <h2><%= cocktail.name %></h2>
+
+<% if cocktail.photo.present? %>
+<%= cl_image_tag("r3k5wb4ai1zon8ftui7p",width: 150, height: 150) %>
+  <% else %>
+<%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
+<% end %>
+
+<%#=image_tag cocktail.photo.url(:thumb) %>
   <%= link_to "click for more info", cocktail_path(cocktail) %>
   <br>
 <% end %>
